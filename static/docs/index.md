@@ -12,7 +12,7 @@ Snow is a modern documentation generator built with SvelteKit that helps you cre
 
 ## Quick Start
 
-```bash
+```
 # Clone the repository
 git clone https://github.com/snow-labs/make-docs
 

@@ -29,6 +29,8 @@ static/docs/
 
 Each markdown file can have [frontmatter](./frontmatter) to define its title and position in the sidebar.
 
+*TIP: Each markdown file can also be in a folder on the sidebar and will use the folder name.*
+
 ### Custom Pages
 
 For more complex documentation that requires custom Svelte components:
