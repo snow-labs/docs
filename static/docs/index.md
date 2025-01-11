@@ -1,4 +1,4 @@
-# Welcome to Snow
+# Welcome to Snow!
 
 Snow is a modern documentation generator built with SvelteKit that helps you create beautiful documentation sites with minimal setup.
 
