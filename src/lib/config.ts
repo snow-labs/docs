@@ -14,6 +14,10 @@ export default {
         {
             title: 'Developer',
             path: 'https://amethystdev.com'
+        },
+        {
+            title: 'Contributors',
+            path: '/contributors'
         }
     ],
     frontpageCards: [
@@ -35,6 +39,10 @@ export default {
         {
             title: 'GitHub',
             path: 'https://github.com/snow-labs/make-docs'
+        },
+        {
+            title: 'Contributors',
+            path: '/contributors'
         }
     ]
 }
