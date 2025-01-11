@@ -65,6 +65,9 @@
             <a class="btn variant-soft" href={`${config.github}`} target="_blank" rel="noopener">
                 GitHub
             </a>
+            <a class="btn variant-filled-primary" href={`/contributors`}>
+                Contributors
+            </a>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
