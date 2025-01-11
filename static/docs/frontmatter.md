@@ -11,7 +11,7 @@ Frontmatter is a way to add metadata to your Markdown files. It must be placed a
 
 These are the basic frontmatter fields supported:
 
-```yaml
+```
 ---
 title: Frontmatter          # The title shown in the sidebar and page heading
 sidebar-position: 3         # Controls the order in pages appear in the sidebar
@@ -26,7 +26,7 @@ The `sidebar-position` field controls the order of pages in the sidebar navigati
 
 This is the frontmatter used on this current page:
 
-```yaml
+```
 ---
 title: Frontmatter
 sidebar-position: 3
