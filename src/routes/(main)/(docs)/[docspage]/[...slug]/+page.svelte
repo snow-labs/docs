@@ -6,7 +6,7 @@
     /** @type {import('./$types').PageData} */
     export let data;
     export let folder = undefined;
-
+    let instance = data.props.docspage;
     const carta = new Carta({
         sanitize: false
     });
@@ -24,9 +24,12 @@
         folderStates[folderName] = !folderStates[folderName];
         folderStates = folderStates;
     }
-    for (const part of data.props.slug.split('/').slice(0, -1)) {
-        folderStates[part] = true;
-    }
+    try {
+        for (const part of data.props.slug.split('/').slice(0, -1)) {
+            folderStates[part] = true;
+        }
+
+    } catch {}
     async function renderMarkdown() {
         try {
             if (data.props.markdown) {
@@ -59,11 +62,21 @@
         <line x1="3" y1="18" x2="21" y2="18"></line>
     </svg>
 </button>
+<svelte:head>
+    {#if data.props && data.props.frontmatter && data.props.frontmatter.title}
+        <meta property="og:title" content={data.props.frontmatter.title} />
+    {/if}
+    {#if data.props && data.props.frontmatter && data.props.frontmatter.description}
+        <meta property="og:description" content={data.props.frontmatter.description} />
+    {/if}
+    <meta property="og:type" content="website">
+</svelte:head>
 
+{#if data.props && data.props.files && data.props.docspage}
 {#if folder}
-    <div class="ml-2">
+    <div>
         <button
-            class="flex items-center px-4 py-2 w-full hover:bg-surface-500/10 rounded-lg"
+            class="flex items-center p-2 w-full hover:bg-surface-500/10 rounded-lg"
             on:click={() => toggleFolder(folder.name)}
         >
             <svg
@@ -89,7 +102,7 @@
             <div class="ml-4 space-y-1">
                 {#each folder.files || [] as file}
                     <a
-                        href="/docs/{file.path}"
+                        href="/{data.props.docspage}/{file.path}"
                         class="block px-4 py-2 rounded-lg {data.props.slug === file.path ? 'bg-primary-500 text-white' : 'hover:bg-surface-500/10'}"
                     >
                         {file.title}
@@ -105,13 +118,23 @@
     <Drawer>
         <nav class="list-nav p-4">
             <div class="p-4">
+                {#if data.props.files.instances.length > 1}
+                    <select name="" id="" bind:value={instance} class="select" on:change={()=>{
+                        location.pathname = `/${instance}/index`;
+                        // location.reload();
+                    }}>
+                            {#each data.props.files.instances.slice().reverse() as instance}
+                                <option value={instance.path}>{instance.name}</option>
+                            {/each}
+                    </select>
+                {/if}
                 <div class="h-4"></div>
                 <div class="sidebar-content">
                     {#if data.props.files}
                         <div class="space-y-2">
                             {#each data.props.files.rootFiles || [] as file}
                                 <a
-                                    href="/docs/{file.path}"
+                                    href="/{data.props.docspage}/{file.path}"
                                     class="block px-4 py-2 rounded-lg {data.props.slug === file.path ? 'bg-primary-500 text-white' : 'hover:bg-surface-500/10'}"
                                 >
                                     {file.title}
@@ -132,13 +155,23 @@
     <div class="flex">
         <div class="hidden md:block w-64 h-screen bg-surface-700/5 p-4 border-r border-surface-500/20 sticky top-0">
             <div class="p-4">
+                {#if data.props.files.instances.length > 1}
+                    <select name="" id="" bind:value={instance} class="select" on:change={()=>{
+                        location.pathname = `/${instance}/index`;
+                        // location.reload();
+                    }}>
+                            {#each data.props.files.instances.slice().reverse() as instance}
+                                <option value={instance.path}>{instance.name}</option>
+                            {/each}
+                    </select>
+                {/if}
                 <div class="h-4"></div>
                 <div class="sidebar-content">
                     {#if data.props.files}
                         <div class="space-y-2">
                             {#each data.props.files.rootFiles || [] as file}
                                 <a
-                                    href="/docs/{file.path}"
+                                    href="/{data.props.docspage}/{file.path}"
                                     class="block px-4 py-2 rounded-lg {data.props.slug === file.path ? 'bg-primary-500 text-white' : 'hover:bg-surface-500/10'}"
                                 >
                                     {file.title}
@@ -155,6 +188,10 @@
         </div>
 
         <div class="flex-1 container mx-auto px-4 py-8 md:px-8">
+            {#if data.props.frontmatter.banner}
+                <img src={data.props.frontmatter.banner} class="w-full h-56 object-cover rounded-2xl shadow-lg" alt="">
+                <div class="h-4"></div>
+            {/if}
             {#if error}
                 <p class="text-error-500">Error: {error.message}</p>
             {:else if !html}
@@ -166,4 +203,5 @@
             {/if}
         </div>
     </div>
+{/if}
 {/if}

@@ -1,9 +1,10 @@
 <script>
-    import { goto } from '$app/navigation';
+    // import { goto } from '$app/navigation';
     import { onMount } from 'svelte';
 
     onMount(() => {
-        goto('/docs/index');
+        // goto('/docs/index');
+        location.pathname = '/docs/index'
     });
 </script>
 

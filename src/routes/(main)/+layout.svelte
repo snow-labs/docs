@@ -36,30 +36,16 @@
 			<a href='/'><strong class="text-xl">{config.title}</strong></a>
 			<div class="h-1"></div>
 			<svelte:fragment slot="trail">
-				<a
-					class="btn btn-sm variant-ghost-surface"
-					href='{config.discord}'
-					target="_blank"
-					rel="noreferrer"
-				>
-					Discord
-				</a>
-				<a
-					class="btn btn-sm variant-ghost-surface"
-					href="{config.developer}"
-					target="_blank"
-					rel="noreferrer"
-				>
-					Developer
-				</a>
-				<a
-					class="btn btn-sm variant-ghost-surface"
-					href="{config.github}"
-					target="_blank"
-					rel="noreferrer"
-				>
-					GitHub
-				</a>
+				{#each config.links as link}
+					<a
+						class="btn btn-sm variant-ghost-surface"
+						href='{link.path}'
+						target="_blank"
+						rel="noreferrer"
+					>
+						{link.title}
+					</a>
+				{/each}
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
