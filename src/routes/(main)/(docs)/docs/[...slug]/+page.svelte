@@ -82,7 +82,7 @@
             <path d="M6 9l6 6 6-6"></path>
         </svg>
         
-            <span>{folder.name}</span>
+            <span>{folder.title || folder.name}</span>
         </button>
         
         {#if folderStates[folder.name]}

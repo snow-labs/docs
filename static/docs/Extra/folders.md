@@ -52,6 +52,22 @@ api/
     └── posts.md    # Posts API
 ```
 
+## Using folder.json Files
+
+In addition to Markdown files, Snow supports `folder.json` files for documentation. These work exactly like Markdown files but use JSON format instead:
+
+```json
+{
+    "title": "API Reference",
+    "sidebar-position": 3,
+}
+```
+
+The JSON files follow the same rules as Markdown files:
+- Can be placed anywhere in the folder structure
+- Support the same frontmatter fields (`title`, `sidebar-position`)
+
+
 ## Tips
 
 - Use lowercase names for folders

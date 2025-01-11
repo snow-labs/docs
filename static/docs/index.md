@@ -1,3 +1,8 @@
+---
+title: Introduction
+sidebar-position: 0
+---
+
 # Welcome to Snow!
 
 Snow is a modern documentation generator built with SvelteKit that helps you create beautiful documentation sites with minimal setup.
@@ -9,6 +14,7 @@ Snow is a modern documentation generator built with SvelteKit that helps you cre
 - ⚡ **Fast** - Built on SvelteKit for optimal performance
 - 📱 **Responsive** - Looks great on all devices
 - 🎯 **Simple** - Get started in minutes
+- ❄️ **Beautiful UI** - Includes animations and modern design elements
 
 ## Quick Start
 
@@ -27,7 +33,10 @@ npm run dev
 
 - [Installation](./installation) - Get Snow up and running
 - [Setup](./setup) - Configure your documentation site
-- [Frontmatter](./frontmatter) - Learn how to structure your docs
+- [Frontmatter](./frontmatter) - Structure your documentation
+- [Folders](./folders) - Organize your content
+- [Theming](./theming) - Customize the look and feel
+- [Components](./components) - Built-in components reference
 
 ## Why Snow?
 

@@ -29,7 +29,6 @@ function parseFrontmatter(rawContent: string): { frontmatter: Frontmatter; conte
         i++;
     }
 
-    // Skip the closing --- and join the rest as content
     const mainContent = lines.slice(i + 1).join('\n');
 
     return { frontmatter, content: mainContent };
