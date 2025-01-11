@@ -13,8 +13,7 @@ function parseFrontmatter(rawContent: string): { frontmatter: Frontmatter; conte
 
     const frontmatter: Frontmatter = {};
     let i = 1;
-    
-    // Find the end of frontmatter
+
     while (i < lines.length && lines[i] !== '---') {
         const line = lines[i].trim();
         if (line) {
