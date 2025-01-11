@@ -1,0 +1,22 @@
+backend:
+  name: github
+  branch: main 
+  repo: snow-labs/docs
+
+# These lines should *not* be indented
+media_folder: "static/img" # Media files will be stored in the repo under static/images/uploads
+public_folder: "/img/" # The src attribute for uploaded media will begin with /images/uploads
+
+collections:
+- name: docs
+  label: "docs"
+  folder: static/docs
+  identifier_field: title
+  extension: md
+  widget: "list"
+  create: true
+  slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  fields:
+    - { name: title, label: Title, widget: string }
+    - { name: body, label: Body, widget: markdown }
+    - { name: sidebar-position, label: Sidebar Position, widget: string }
